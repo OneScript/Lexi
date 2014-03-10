@@ -1,15 +1,27 @@
 {
   "name": "lexi",
   "version": "0.0.0",
-  "description": "Lexical analysis tool",
+  "description": "Fast & simple lexical analyzer",
   "main": "lib/lexi.js",
   "scripts": {
     "test": "mocha test"
   },
+  "keywords": [
+    "lexer",
+    "tokenizer",
+    "lexical",
+    "analysis",
+    "token",
+    "scan"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OneScript/Lexi.git"
+  },
   "devDependencies": {
     "mocha": "*",
-	"should": "*"
+    "should": "*"
   },
-  "author": "Elerium <elerium.git@gmail.com>",
-  "license": "ISC"
+  "author": "OneScript <onescript.git@gmail.com>",
+  "license": "MIT"
 }
