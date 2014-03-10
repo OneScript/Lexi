@@ -65,10 +65,50 @@ describe('#lexi', function() {
 			}
 		];
 
-		var actual = new Lexi().addRule('([0-9]+) ([a-zA-Z ]+)', function(houseNumber, street) {
+		var lexemes = new Lexi().addRule('([0-9]+) ([a-zA-Z ]+)', function(houseNumber, street) {
 			return ['HOUSENUMBER', 'STREET'];
 		}).scan('742 Evergreen Terrace');
 
-		assert.equal(JSON.stringify(actual), JSON.stringify(expected));
+		assert.equal(JSON.stringify(lexemes), JSON.stringify(expected));
+	});
+
+	it('should scan input', function() {
+		var expected = [
+			{
+				type: 'LINE',
+				values: "Circles in the dark and it's dangerous to move\n",
+				offset: 0,
+				line: 1
+			},
+			{
+				type: 'LINE',
+				values: "I had my arm up and was pasted to the wall\n",
+				offset: 47,
+				line: 2
+			},
+			{
+				type: 'LINE',
+				values: "Another cool confusion that I don't get but that's fine\n",
+				offset: 90,
+				line: 3
+			},
+			{
+				type: 'LINE',
+				values: "Cause i was happy to go home and write a song\n",
+				offset: 146,
+				line: 4
+			}
+		];
+
+		var lexemes = new Lexi().addRule("[^\\n]*\\n", function() {
+			return 'LINE';
+		}).scan(
+			"Circles in the dark and it's dangerous to move\n" +
+			"I had my arm up and was pasted to the wall\n" +
+			"Another cool confusion that I don't get but that's fine\n" +
+			"Cause i was happy to go home and write a song\n"
+		);
+
+		assert.equal(JSON.stringify(lexemes), JSON.stringify(expected));
 	});
 });
