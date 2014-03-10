@@ -1,0 +1,15 @@
+{
+  "name": "lexi",
+  "version": "0.0.0",
+  "description": "Lexical analysis tool",
+  "main": "lib/lexi.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "devDependencies": {
+    "mocha": "*",
+	"should": "*"
+  },
+  "author": "Elerium <elerium.git@gmail.com>",
+  "license": "ISC"
+}
